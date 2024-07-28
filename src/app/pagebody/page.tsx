@@ -8,16 +8,16 @@ export default function PageBody() {
   const [loading, setLoading] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       const data = await await axios.get("/api/users/crawlwebsite");
-  //       console.log("akshay", data, data.data.data);
-  //       setContent(data.data.data);
-  //       //   setLinks(data.data.links);
-  //     };
+    useEffect(() => {
+      const fetchData = async () => {
+        const data = await axios.get("/api/users/crawlwebsite");
+        console.log("akshay", data);
+        // setContent(data.data.data);
+        //   setLinks(data.data.links);
+      };
 
-  //     fetchData();
-  //   }, []);
+      fetchData();
+    }, []);
 
   useEffect(() => {
     if (iframeRef.current) {
@@ -46,15 +46,6 @@ export default function PageBody() {
         <div key={index} dangerouslySetInnerHTML={{ __html: link }}/>
       ))} */}
     
-      <iframe
-        ref={iframeRef}
-        id="id_description_iframe"
-        src="https://manhuafast.net/"
-        height={"115%"}
-        width={"100%"}
-        style={{ position: "absolute", top: "-100px", zIndex: "-1", visibility:"hidden" }}
-      />
-      <div id="demo1"></div>
     </div>
   );
 }
